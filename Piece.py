@@ -34,3 +34,4 @@ class Piece(ABC):
     def newPosInBounds(self, vectorPGN):
         if 0 > vectorPGN[0] <=8 or 0 > vectorPGN[1] <=8:
             return False
+        return True

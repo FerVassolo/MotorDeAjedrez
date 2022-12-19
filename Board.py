@@ -1,6 +1,7 @@
 from Pawn import Pawn
 from Rook import Rook
 from Bishop import Bishop
+from Knight import Knight
 
 class Board:
 
@@ -42,6 +43,9 @@ class Board:
                 elif elm[1] == "B":
                     bishop = Bishop([i, j], color)
                     self.board[i][j] = bishop
+                elif elm[1] == "N":
+                    knight = Knight([i, j], color)
+                    self.board[i][j] = knight
                 j +=1
             j =0
             i +=1
@@ -71,5 +75,10 @@ class Board:
                         self.auxiliaryBoard[i][j] = "wB"
                     else:
                         self.auxiliaryBoard[i][j] = "bB"
+                if isinstance(self.board[i][j], Knight):
+                    if self.board[i][j].color == "white":
+                        self.auxiliaryBoard[i][j] = "wN"
+                    else:
+                        self.auxiliaryBoard[i][j] = "bN"
         for elm in self.auxiliaryBoard:
             print(elm)
